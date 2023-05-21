@@ -39,6 +39,13 @@ const readNote = (title) => {
       console.log('ERROR:NOTE NOT FOUND')
    }
 }
+
+const listNotes = () => {
+   const notes = loadNotes()
+   const list = notes.map((note) => {
+      console.log(note.title)
+   })
+}
 const saveNotes = (notes) => {
    const dataJSON = JSON.stringify(notes)
    fs.writeFileSync('notes.json', dataJSON)
@@ -57,5 +64,6 @@ const loadNotes = () => {
 module.exports = {
    addNote: addNote,
    removeNote: removeNote,
-   readNote: readNote
+   readNote: readNote,
+   listNotes: listNotes
 }
